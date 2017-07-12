@@ -103,15 +103,17 @@ filtering steps, see the `full Trimmomatic documentation <http://www.usadellab.o
 		 by a colon separated set of parameters. Commonly used functions include:
 
             - **"SLIDINGWINDOW:<windowSize>:<requiredQuality>"**: Perform a sliding window trimming, cutting once
-              the average quality within the window falls below a threshold.
+              the average quality within the window falls below a threshold
             - **"LEADING:<quality>"**:Cut bases off the start of a read, if below a threshold
               quality
             - **"TRAILING:<quality>"**: Cut bases off the end of a read, if below a threshold
               quality
             - **"MINLEN:<length>"**: Drop the read if it is below a specified length
 
+
             Additionally, you can provide Trimmomatic with a file containing a list
             of adaptor sequences to be trimmed.
+
 
             - **"ILLUMINACLIP:<fastaWithAdaptersEtc>:<seed mismatches>:<palindrome clip threshold>:<simple clip threshold>"**
               : Cut adapter and other illumina-specific sequences from the read.
