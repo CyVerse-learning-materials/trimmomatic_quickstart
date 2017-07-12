@@ -124,7 +124,7 @@ filtering steps, see the `full Trimmomatic documentation <http://www.usadellab.o
   4. Under settings, select 'paaired-ended' or 'single-ended'. Under 'Enter a
      folder of sequencing files:' select a folder containing one or more sequencing
      files (.fq.gz or .fastq.gz).
-  5. Under 'Trimmer settings file in text formatt' browse to the location of the
+  5. Under 'Trimmer settings file in text format' browse to the location of the
      Trimmomatic settings file you created in step 2.
   6. If you are using the 'ILLUMINACLIP' function, browse to the location of the
      fasta file containing Illumina adaptor sequences. (You may find some
