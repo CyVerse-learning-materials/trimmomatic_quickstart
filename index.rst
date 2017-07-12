@@ -139,7 +139,7 @@ filtering steps, see the `full Trimmomatic documentation <http://www.usadellab.o
 Once completed, the Discovery Environment Trimmomatic App will return the trimmed
 reads:
 
-**Paired Ended Outputs - 4 outputs for each pair (R1/R2)of reads:**
+**Paired Ended Outputs - 4 outputs for each pair (R1/R2) of reads:**
 
 .. list-table::
     :header-rows: 1
@@ -156,7 +156,7 @@ reads:
         trimmomatics settings file.
       - See `Example outputs <http://datacommons.cyverse.org/browse/iplant/home/shared/cyverse_training/quickstarts/trimmomatic/01_output>`_
 
-**Paired Ended Outputs - 4 outputs for each pair (R1/R2)of reads:**
+**Paired Ended Outputs - 4 outputs for each pair (R1/R2) of reads:**
 
 .. list-table::
     :header-rows: 1
