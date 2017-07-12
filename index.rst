@@ -3,49 +3,24 @@
 |Home_Icon|_
 `Learning Center Home <http://learning.cyverse.org/>`_
 
-QUICKSTART NAME
-===============
-
-..
-    #### Comment: Use short, imperative titles e.g. Upload and share data, uploading and
-    sharing data ####
+Filter and Trim High-throughput Sequencing Reads with Trimmomatic
+==================================================================
 
 Goal
+-----
+
+A high-throughput sequencing run generates large files containing perhaps as many
+as several 10's of millions of individual sequencing reads. After assessment of
+sequencing quality using a software such as `FastQC <https://cyverse-fastqc-quickstart.readthedocs-hosted.com/en/latest/>`_,
+filtering and trimming steps can remove populations of low quality reads, remove
+sequenicng adaptors, and trim low-quality regions of individual reads. `Trimmomatic <http://www.usadellab.org/cms/?page=trimmomatic>`_
+is a popular software that perform several manipulations to prepare reads for
+downstream analysis.
+
 ----
-
-..
-    Avoid covering upstream and downstream steps that are not explicitly and
-    necessarily part of the tutorial - write or link to separate quick
-    starts/tutorials for those parts
-
-..
-    #### Comment: A few sentences (50 words or less) describing the ultimate goal of the steps
-    in this tutorial ####
-
-----
-
-.. toctree::
-	:maxdepth: 2
-
-	Quickstart home <self>
-	Step Two <step2.rst>
-
-..
-	#### Comment:This tutorial can have multiple pages. The table of contents assumes
-	you have an additional page called 'Step Two' with content located in 'step2.rst'
-	Edit these titles and filenames as needed ####
-
-..
-    #### Comment: If you are using the TOC remove the 'summary', 'Additional information,
-    help' and 'Fix or improve this tutorial' from all pages except the last page of the
-    quickstart ####
-
-----------
 
 Prerequisites
 -------------
-
-
 
 Downloads, access, and services
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -58,18 +33,12 @@ Downloads, access, and services
 .. list-table::
     :header-rows: 1
 
-	   * - Prerequisite
-	     - Preparation/Notes
-	     - Link/Download
-	   * - CyVerse account
-	     - You will need a CyVerse account to complete this exercise
-	     - `Register <https://user.cyverse.org/>`_
-	   * - Atmosphere access
-	     - You must have access to Atmosphere
-       - `Request Access <https://user.cyverse.org/>`_
-	   * - Cyberduck
-	     - Standalone software for upload/download to Data Store
-	     - `Download <https://cyberduck.io/>`_
+    * - Prerequisite
+      - Preparation/Notes
+      - Link/Download
+    * - CyVerse account
+      - You will need a CyVerse account to complete this exercise
+      - `Register <https://user.cyverse.org/>`_
 
 Platform(s)
 ~~~~~~~~~~~
@@ -86,37 +55,12 @@ Platform(s)
       - Interface
       - Link
       - Platform Documentation
-      - Quick Start
-    * - Data Store
-		  - GUI/Command line
-      - `Data Store <http://www.cyverse.org/data-store>`_
-			- `Data Store Manual <https://wiki.cyverse.org/wiki/display/DS/Data+Store+Table+of+Contents>`_
-			- `Guide <>`__
-		* - Discovery Environment
+      - Learning Center Documentation
+    * - Discovery Environment
       - Web/Point-and-click
       - `Discovery Environment <https://de.cyverse.org/de/>`_
       - `DE Manual <https://wiki.cyverse.org/wiki/display/DEmanual/Table+of+Contents>`_
-      - `Guide <>`__
-    * - Atmosphere
-      - Command line (ssh) and/or Desktop (VNC)
-      - `Atmosphere <https://atmo.cyverse.org>`_
-      - `Atmosphere Manual <https://wiki.cyverse.org/wiki/display/atmman/Atmosphere+Manual+Table+of+Contents>`_
-      - `Guide <>`__
-    * - BisQue
-      - Web/Point-and-click and/or Command-line (API)
-      - `BisQue <https://bisque.cyverse.org/client_service/>`_
-      - `BisQue Manual <https://wiki.cyverse.org/wiki/display/BIS>`_
-      - `Guide <>`__
-    * - DNA Subway
-      - Web/Point-and-click
-      - `DNA Subway <https://dnasubway.cyverse.org/>`_
-      - `DNA Subway Manual <http://dnasubway.cyverse.org/files/pdf/DNA_Subway_Guide.pdf>`_
-      - `Guide <>`__
-    * - Agave API
-      - Command-line (API)
-      - `Agave API <https://agaveapi.co>`_
-      - `Live Docs <https://agaveapi.co>`_
-      - `Guide <>`__
+      - `Guide <https://learning.cyverse.org/projects/discovery-environment-guide/en/latest/>`__
 
 Input and example data
 ~~~~~~~~~~~~~~~~~~~~~~
@@ -130,31 +74,105 @@ Input and example data
       - Format
       - Preparation/Notes
       - Example Data
-    * -
-      -
-      -
-      -
+    * - High-throughput sequencing reads
+      - compressed FASTQ (.fq.gz or .fastq.gz - compressed)
+      - No pre-processing of these reads is necessary.
+      - See `Trimmomatic inputs <http://datacommons.cyverse.org/browse/iplant/home/shared/cyverse_training/quickstarts/trimmomatic/00_input>`_
 
+------
 
-----------
+*Get started: Filter, Trim, and Process High-throughput Sequenicng Reads with Trimmomatic*
+-------------------------------------------------------------------------------------------
 
+Several of the most popular options for Trimmomatic will be shown here. For all
+of the options, and additional details including the ordering of cleaning/
+filtering steps, see the `full Trimmomatic documentation <http://www.usadellab.org/cms/?page=trimmomatic>`_.
 
-*Get started*
-----------------
+  1. Login to the `Discovery Environment`_
+  2. Click on the 'Data' panel. In the desired directory, click the 'File' menu,
+     select 'Create' and then 'New Plain Text File'. Create a **Trimmomatic Settings**
+     file by entering the desired Trimmomatic functions (one per line) to set the
+     options used by the Trimmomatic program. Click 'Save' and save the file with
+     a '.txt' extenstion in the desired directory. See an `example Trimmomatic Settings <http://datacommons.cyverse.org/browse/iplant/home/shared/cyverse_training/quickstarts/trimmomatic/00_input>`_
+     file.
 
-1. Step one
-2. Step two
+	 .. hint::
 
-..
-    #### Comment: A numbered list of steps go here ####
+		 Trimmomatic has several individual functions (see `full Trimmomatic documentation`_).
+		 To specifiy a function and its parameters, you will usually give the function name, followed
+		 by a colon separated set of parameters. Commonly used functions include:
+
+            - **"SLIDINGWINDOW:<windowSize>:<requiredQuality>"**: Perform a sliding window trimming, cutting once
+              the average quality within the window falls below a threshold.
+            - **"LEADING:<quality>"**:Cut bases off the start of a read, if below a threshold
+              quality
+            - **"TRAILING:<quality>"**: Cut bases off the end of a read, if below a threshold
+              quality
+            - **"MINLEN:<length>"**: Drop the read if it is below a specified length
+
+            Additionally, you can provide Trimmomatic with a file containing a list
+            of adaptor sequences to be trimmed.
+
+            - **"ILLUMINACLIP:<fastaWithAdaptersEtc>:<seed mismatches>:<palindrome clip threshold>:<simple clip threshold>"**
+              : Cut adapter and other illumina-specific sequences from the read.
+
+  3. Click 'Apps' and open the Trimmomatic App `Trimmomatic-programmable-0.33 <https://de.cyverse.org/de/?type=apps&app-id=4c5c7480-4b0b-11e7-9b36-008cfa5ae621&system-id=de>`_.
+     Name your analysis, and if desired enter commands and select or adjust the
+     output folder.
+  4. Under settings, select 'paaired-ended' or 'single-ended'. Under 'Enter a
+     folder of sequencing files:' select a folder containing one or more sequencing
+     files (.fq.gz or .fastq.gz).
+  5. Under 'Trimmer settings file in text formatt' browse to the location of the
+     Trimmomatic settings file you created in step 2.
+  6. If you are using the 'ILLUMINACLIP' function, browse to the location of the
+     fasta file containing Illumina adaptor sequences. (You may find some
+     relavant Illumina adaptors `here <https://github.com/timflutre/trimmomatic/tree/master/adapters>`_ ).
+  7. Click 'Launch Analysis' to launch the analysis. Click the 'Analysis' button
+     to view job status and obtain results.
+
 
 *Summary*
 ~~~~~~~~~~~
 
+Once completed, the Discovery Environment Trimmomatic App will return the trimmed
+reads:
+
+**Paired Ended Outputs - 4 outputs for each pair (R1/R2)of reads:**
+
+.. list-table::
+    :header-rows: 1
+
+    * - Output
+      - Description
+      - Example
+    * - - trmPr_readname_R1.fq/.fastq (output_forward_paired)
+        - trmPr_readname_R2.fq/.fastq (output_reverse_paired)
+        - trmS_readname_R1.fq/.fastq (output_forward_unpaired)
+        - trmS_readname_R2.fq/.fastq (output_reverse_unpaired)
+      - Every pair of sequence reads will generate a set of paired reads that
+        have been trimmed according to the functions specified in the provided
+        trimmomatics settings file.
+      - See `Example outputs <http://datacommons.cyverse.org/browse/iplant/home/shared/cyverse_training/quickstarts/trimmomatic/01_output>`_
+
+**Paired Ended Outputs - 4 outputs for each pair (R1/R2)of reads:**
+
+.. list-table::
+    :header-rows: 1
+
+    * - Output
+      - Description
+      - Example
+    * - readname_R1.fq/.fastq
+      - Every sequence will generate a trimmed file as well as a file of the
+      - None provided.
 ..
     Summary
 
 **Next Steps:**
+
+To confirm that Trimmomatic processing has achived the desired results, you may
+wish to evaluate the reads using `FastQC`_.
+
 
 ----------
 
@@ -173,7 +191,7 @@ Post your question to the user forum:
 
 **Fix or improve this documentation**
 
-- On Github: `Repo link <FIX_FIX_FIX_FIX_FIX_FIX_FIX_FIX_FIX_FIX_FIX_FIX_FIX_FIX_FIX_>`_
+- On Github: `Repo link <https://github.com/CyVerse-learning-materials/trimmomatic_quickstart>`_
 - Send feedback: `Tutorials@CyVerse.org <Tutorials@CyVerse.org>`_
 
 ----
