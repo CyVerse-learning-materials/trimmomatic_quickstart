@@ -132,6 +132,7 @@ filtering steps, see the `full Trimmomatic documentation <http://www.usadellab.o
   7. Click 'Launch Analysis' to launch the analysis. Click the 'Analysis' button
      to view job status and obtain results.
 
+----
 
 *Summary*
 ~~~~~~~~~~~
@@ -139,7 +140,7 @@ filtering steps, see the `full Trimmomatic documentation <http://www.usadellab.o
 Once completed, the Discovery Environment Trimmomatic App will return the trimmed
 reads:
 
-**Paired Ended Outputs - 4 outputs for each pair (R1/R2) of reads:**
+**Paired End Outputs - 4 outputs for each pair (R1/R2) of reads:**
 
 .. list-table::
     :header-rows: 1
@@ -156,7 +157,7 @@ reads:
         trimmomatics settings file.
       - See `Example outputs <http://datacommons.cyverse.org/browse/iplant/home/shared/cyverse_training/quickstarts/trimmomatic/01_output>`_
 
-**Paired Ended Outputs - 4 outputs for each pair (R1/R2) of reads:**
+**Single End Outputs - 2 outputs for each pair (R1/R2) of reads:**
 
 .. list-table::
     :header-rows: 1
@@ -176,7 +177,7 @@ To confirm that Trimmomatic processing has achived the desired results, you may
 wish to evaluate the reads using `FastQC`_.
 
 
-----------
+-----
 
 Additional information, help
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
