@@ -166,7 +166,7 @@ reads:
       - Description
       - Example
     * - trimreadname_R1.fq/.fastq
-      - Every sequence will generate a trimmed file as well as a file of the
+      - Every sequence will generate a trimmed file.
       - None provided.
 ..
     Summary
