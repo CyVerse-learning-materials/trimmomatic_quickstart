@@ -88,12 +88,12 @@ Several of the most popular options for Trimmomatic will be shown here. For all
 of the options, and additional details including the ordering of cleaning/
 filtering steps, see the `full Trimmomatic documentation <http://www.usadellab.org/cms/?page=trimmomatic>`_.
 
-  1. Login to the `Discovery Environment`_
+  1. Login to the |discovery_enviornment|.
   2. Click on the 'Data' panel. In the desired directory, click the 'File' menu,
      select 'Create' and then 'New Plain Text File'. Create a **Trimmomatic Settings**
      file by entering the desired Trimmomatic functions (one per line) to set the
      options used by the Trimmomatic program. Click 'Save' and save the file with
-     a '.txt' extenstion in the desired directory. See an `example Trimmomatic Settings <http://datacommons.cyverse.org/browse/iplant/home/shared/cyverse_training/quickstarts/trimmomatic/00_input>`_
+     a '.txt' extenstion in the desired directory. See an |Trimmomatic Settings|
      file.
 
 	 .. hint::
@@ -118,7 +118,7 @@ filtering steps, see the `full Trimmomatic documentation <http://www.usadellab.o
             - **"ILLUMINACLIP:<fastaWithAdaptersEtc>:<seed mismatches>:<palindrome clip threshold>:<simple clip threshold>"**
               : Cut adapter and other illumina-specific sequences from the read.
 
-  3. Click 'Apps' and open the Trimmomatic App `Trimmomatic-programmable-0.33 <https://de.cyverse.org/de/?type=apps&app-id=4c5c7480-4b0b-11e7-9b36-008cfa5ae621&system-id=de>`_.
+  3. Click 'Apps' and open the Trimmomatic App: |Trimmomatic-programmable-0.36|.
      Name your analysis, and if desired enter commands and select or adjust the
      output folder.
   4. Under settings, select 'paaired-ended' or 'single-ended'. Under 'Enter a
@@ -128,7 +128,7 @@ filtering steps, see the `full Trimmomatic documentation <http://www.usadellab.o
      Trimmomatic settings file you created in step 2.
   6. If you are using the 'ILLUMINACLIP' function, browse to the location of the
      fasta file containing Illumina adaptor sequences. (You may find some
-     relavant Illumina adaptors `here <https://github.com/timflutre/trimmomatic/tree/master/adapters>`_ ).
+     relavant |Illumina adaptors|.
   7. Click 'Launch Analysis' to launch the analysis. Click the 'Analysis' button
      to view job status and obtain results.
 
@@ -210,3 +210,22 @@ Post your question to the user forum:
     :width: 25
     :height: 25
 .. _Home_Icon: http://learning.cyverse.org/
+.. |discovery_enviornment| raw:: html
+
+    <a href="https://de.cyverse.org/de/" target="_blank">Discovery Environment</a>
+
+.. |Trimmomatic Settings| raw:: html
+
+    <a href="http://datacommons.cyverse.org/browse/iplant/home/shared/cyverse_training/quickstarts/trimmomatic/00_input" target="_blank">example Trimmomatic Settings</a>
+
+.. |Trimmomatic-programmable-0.36| raw:: html
+
+    <a href="https://de.cyverse.org/de/?type=apps&app-id=8c0345b4-c63a-11e7-a0d5-008cfa5ae621&system-id=de" target="_blank">Trimmomatic-programmable-0.36</a>
+
+.. |Illumina adaptors| raw:: html
+
+    <a href="https://github.com/timflutre/trimmomatic/tree/master/adapters" target="_blank">Illumina adaptors</a>
+
+
+
+Illumina adaptors
